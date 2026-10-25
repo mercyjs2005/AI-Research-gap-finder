@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #1e1e21;
+  --color-paper: #fbfaf7;
+  --color-ink: #18181b;
+  --color-muted: #64646c;
+  --color-line: #e8e6e1;
+  --color-accent: #ea6a1f;
+  --color-accent-soft: #fdeee2;
+  --color-success: #17803d;
+  --color-success-soft: #e7f5ec;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdeceb;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+/* Dashed line that slowly travels along a connector (hero visual). */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 3 7;
+  animation: flow 1.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
